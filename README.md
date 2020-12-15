@@ -1,5 +1,9 @@
 ### SDMM First Application - Digital Clock App
 
+# Considerations
+* Number suffix solution isn't scaleable 
+* Slight delay before first clock is rendered due to timer. 
+
 # Deliverables
     [X] Project should be in a Git repository on GitHub
     [o] You should make regular (daily) Git commits to the project
@@ -12,7 +16,7 @@
 # Requirements
     [ ] Project will be written in:
         [X] HTML
-        [ ] CSS
+        [o] CSS
         [X] Javascript
     No Javascript libraries or frameworks are allowed
     No following tutorials of clock apps/projects
