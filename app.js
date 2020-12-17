@@ -1,5 +1,4 @@
 // SDMM Clock App
-// Preloads
 
 const myDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const myMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
