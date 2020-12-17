@@ -19,7 +19,8 @@ function earlyLocalClock() {
 
     document.getElementById("clock").innerHTML = currentTime;
     document.getElementById("date").innerHTML = currentDate;
-    document.getElementById("clocktype").innerHTML = "24h"
+    document.getElementById("clocktype").innerHTML = "--"
+    document.getElementById("clocktype").disabled = true;
     localClock();
 }
 
@@ -35,6 +36,7 @@ function localClock() {
         document.getElementById("clock").innerHTML = currentTime;
         document.getElementById("date").innerHTML = currentDate;
         document.getElementById("clocktype").innerHTML = "24h"
+        document.getElementById("clocktype").disabled = false;
         document.getElementById("clocktype").onclick = function () { clearInterval(newClock); earlyMilClock(); };
 
     }
@@ -52,7 +54,8 @@ function earlyMilClock() {
 
     document.getElementById("clock").innerHTML = currentTime;
     document.getElementById("date").innerHTML = currentDate;
-    document.getElementById("clocktype").innerHTML = "12h"
+    document.getElementById("clocktype").innerHTML = "--"
+    document.getElementById("clocktype").disabled = true;
     milClock();
 }
 
@@ -68,6 +71,7 @@ function milClock() {
         document.getElementById("clock").innerHTML = currentTime;
         document.getElementById("date").innerHTML = currentDate;
         document.getElementById("clocktype").innerHTML = "12h"
+        document.getElementById("clocktype").disabled = false;
         document.getElementById("clocktype").onclick = function () { clearInterval(newClock); earlyLocalClock(); };
 
     }
