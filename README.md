@@ -2,7 +2,7 @@
 
 # Considerations
 * Number suffix solution isn't scaleable 
-* Slight delay before first clock is rendered due to timer. 
+* 12/24 switch works, but is fragile and could use improvement. 
 
 # Deliverables
     [X] Project should be in a Git repository on GitHub
@@ -10,7 +10,7 @@
     [X] Clock should show current date (eg. Monday, August 12th)
     [X] Clock should show current time in hours, minutes and seconds (HH:MM:SS)
     [X] Upon completion, this web app should be publicly accessible (utilizing GitHub pages hosting)
-    [*] BONUS (if completed ahead of time):
+    [X] BONUS (if completed ahead of time):
         Create a button that toggles the current time between 12/24 hour displays
 
 # Requirements
