@@ -6,7 +6,7 @@
 
 # Deliverables
     [X] Project should be in a Git repository on GitHub
-    [o] You should make regular (daily) Git commits to the project
+    [-] You should make regular (daily) Git commits to the project
     [X] Clock should show current date (eg. Monday, August 12th)
     [X] Clock should show current time in hours, minutes and seconds (HH:MM:SS)
     [X] Upon completion, this web app should be publicly accessible (utilizing GitHub pages hosting)
@@ -14,9 +14,9 @@
         Create a button that toggles the current time between 12/24 hour displays
 
 # Requirements
-    [ ] Project will be written in:
+    [X] Project will be written in:
         [X] HTML
-        [o] CSS
+        [X] CSS
         [X] Javascript
     No Javascript libraries or frameworks are allowed
     No following tutorials of clock apps/projects

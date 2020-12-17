@@ -11,7 +11,7 @@ let suffixes = ['st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th'
 
 // 12h Local Clock 
 
-// preload loal clock to avoid delay inital display of clock due to interval refresh
+// preload loal clock to avoid inital display delay of clock due to interval refresh
 function earlyLocalClock() {
     let d = new Date();
 
@@ -44,7 +44,7 @@ function localClock() {
 
 // 24h Military Time Clock
 
-// preload the mil clock to avoid delay inital display of clock due to interval refresh
+// preload the mil clock to avoid inital display delay of clock due to interval refresh
 function earlyMilClock() {
     let d = new Date();
 
