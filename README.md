@@ -2,7 +2,7 @@
 
 # Considerations
 * Number suffix solution isn't scaleable 
-* Slight delay before first clock is rendered due to timer. 
+* 12/24 switch works, but is fragile and could use improvement. 
 
 # Deliverables
     [X] Project should be in a Git repository on GitHub
