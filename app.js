@@ -44,6 +44,7 @@ const suffixes = [
   'th',
   'th',
   'th',
+  'th',
   'st',
   'nd',
   'rd',
@@ -57,64 +58,14 @@ const suffixes = [
   'st'
 ];
 
-// 12h Local Clock
+let isMilitaryTime = false;
 
-// preload loal clock to avoid inital display delay of clock due to interval refresh
-function earlyLocalClock() {
-  let d = new Date();
-
-  let currentTime = d.toLocaleTimeString();
-  let currentDate =
-    myDays[d.getDay()] +
-    ',' +
-    ' ' +
-    myMonths[d.getMonth()] +
-    ' ' +
-    d.getDate() +
-    suffixes[d.getDate()];
-
-  document.getElementById('clock').innerHTML = currentTime;
-  document.getElementById('date').innerHTML = currentDate;
-  document.getElementById('clocktype').innerHTML = '--';
-  document.getElementById('clocktype').disabled = true;
-  localClock();
-}
-
-// 12h Logic & Display
-function localClock() {
-  //var newClock = setInterval(myLocalClock, 1000);
-  function myLocalClock() {
-    let d = new Date();
-
-    let currentTime = d.toLocaleTimeString();
-    let currentDate =
-      myDays[d.getDay()] +
-      ',' +
-      ' ' +
-      myMonths[d.getMonth()] +
-      ' ' +
-      d.getDate() +
-      suffixes[d.getDate()];
-
-    document.getElementById('clock').innerHTML = currentTime;
-    document.getElementById('date').innerHTML = currentDate;
-    document.getElementById('clocktype').innerHTML = '24h';
-    document.getElementById('clocktype').disabled = false;
-    document.getElementById('clocktype').onclick = function () {
-      clearInterval(newClock);
-      earlyMilClock();
-    };
-  }
-}
-
-// 24h Military Time Clock
-
-// preload the mil clock to avoid inital display delay of clock due to interval refresh
-function earlyMilClock() {
+function displayTimeAndDate() {
   let date = new Date();
 
-  let currentTime = date.toTimeString();
-  let currentDate =
+  const twelveHourTime = date.toLocaleTimeString();
+  const twentyFourHourTime = (currentTime = date.toTimeString().slice(0, 8));
+  const currentDate =
     myDays[date.getDay()] +
     ',' +
     ' ' +
@@ -123,39 +74,23 @@ function earlyMilClock() {
     date.getDate() +
     suffixes[date.getDate()];
 
-  document.getElementById('clock').innerHTML = currentTime;
-  document.getElementById('date').innerHTML = currentDate;
-  document.getElementById('clocktype').innerHTML = '--';
-  document.getElementById('clocktype').disabled = true;
-  milClock();
+  const dateDisplay = document.getElementById('date');
+  dateDisplay.textContent = currentDate;
+  const clockDisplay = document.getElementById('clock');
+  clockDisplay.textContent =
+    isMilitaryTime === false ? twelveHourTime : twentyFourHourTime;
 }
 
-// 24h logic & Display
+const changeTimeDisplayButton = document.getElementById('clocktype');
 
-function milClock() {
-  let d = new Date();
+changeTimeDisplayButton.addEventListener('click', changeTimeDisplay);
+changeTimeDisplayButton.textContent = 'Display 24 HR Time';
 
-  let currentTime = d.toTimeString().slice(0, 8);
-  let currentDate =
-    myDays[d.getDay()] +
-    ',' +
-    ' ' +
-    myMonths[d.getMonth()] +
-    ' ' +
-    d.getDate() +
-    suffixes[d.getDate()];
-
-  document.getElementById('clock').innerHTML = currentTime;
-  document.getElementById('date').innerHTML = currentDate;
-  document.getElementById('clocktype').innerHTML = '12h';
-  document.getElementById('clocktype').disabled = false;
-  document.getElementById('clocktype').onclick = function () {};
+function changeTimeDisplay() {
+  isMilitaryTime = !isMilitaryTime;
+  changeTimeDisplayButton.textContent =
+    isMilitaryTime === false ? 'Display 24 HR Time' : 'Display 12 HR Time';
 }
+displayTimeAndDate();
 
-localClock();
-milClock();
-
-setInterval(() => {
-  localClock();
-  milClock();
-}, 1000);
+setInterval(displayTimeAndDate, 1000);
